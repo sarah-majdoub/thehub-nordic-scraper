@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+data/*.jsonl
+data/*.csv
+data/*.xlsx
+data/cache/
+data/run.log
