@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="792" height="672" viewBox="0 0 792 672" role="img" aria-label="Claude Code answering a question with the thehub MCP server">
+<style>
+  .l { font: 13.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #e6edf3; white-space: pre; opacity: 0; animation: in .25s ease-out forwards; }
+  .prompt { fill: #7ee787; font-weight: 600; }
+  .tool { fill: #d2a8ff; }
+  .dim { fill: #8b949e; }
+  @keyframes in { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .l { animation: none; opacity: 1; } }
+</style>
+<rect width="792" height="672" rx="10" fill="#0d1117"/>
+<rect width="792" height="36" rx="10" fill="#161b22"/>
+<rect y="26" width="792" height="10" fill="#161b22"/>
+<circle cx="20" cy="18" r="6" fill="#ff5f57"/><circle cx="40" cy="18" r="6" fill="#febc2e"/><circle cx="60" cy="18" r="6" fill="#28c840"/>
+<text x="396.0" y="23" text-anchor="middle" style="font: 12px ui-monospace, Menlo, monospace; fill: #8b949e">claude — thehub MCP server</text>
+<text x="18" y="69" class="l prompt" style="animation-delay:0.40s">&gt; Which Finnish companies founded after 2018 have 11–50 employees?</text>
+<text x="18" y="89" class="l " style="animation-delay:1.80s"></text>
+<text x="18" y="109" class="l tool" style="animation-delay:1.80s">⏺ thehub · search_companies(country=&quot;FI&quot;, employees=&quot;11-50&quot;, founded_after=2018,</text>
+<text x="18" y="129" class="l tool" style="animation-delay:1.80s">    limit=50)</text>
+<text x="18" y="149" class="l dim" style="animation-delay:3.00s">  ⎿  {&quot;total&quot;: 17, &quot;companies&quot;: [AIContentfy, Bind, Cerecaptio, Clausal, …]}</text>
+<text x="18" y="169" class="l " style="animation-delay:4.00s"></text>
+<text x="18" y="189" class="l answer" style="animation-delay:4.00s">⏺ thehub.io lists 17 Finnish companies founded after 2018 with 11–50 employees. The</text>
+<text x="18" y="209" class="l answer" style="animation-delay:4.12s">  list only covers IT and software companies that aren&#x27;t currently raising funding.</text>
+<text x="18" y="229" class="l answer" style="animation-delay:4.24s">  </text>
+<text x="18" y="249" class="l answer" style="animation-delay:4.36s">  - AIContentfy (2023, bootstrapping): AI-generated SEO content</text>
+<text x="18" y="269" class="l answer" style="animation-delay:4.48s">  - Bind (2025, seed): AI contract drafting and negotiation</text>
+<text x="18" y="289" class="l answer" style="animation-delay:4.60s">  - Cerecaptio (2020, bootstrapping): recruitment partner for high-growth companies</text>
+<text x="18" y="309" class="l answer" style="animation-delay:4.72s">  - Clausal (2025, Series A): navigation for uncrewed systems when satellite</text>
+<text x="18" y="329" class="l answer" style="animation-delay:4.84s">      positioning (GNSS) is jammed or unavailable</text>
+<text x="18" y="349" class="l answer" style="animation-delay:4.96s">  - eMabler (2019, Series A): open platform for running EV charging businesses</text>
+<text x="18" y="369" class="l answer" style="animation-delay:5.08s">  - FinanceKey (2021, seed): real-time treasury and cash-management platform</text>
+<text x="18" y="389" class="l answer" style="animation-delay:5.20s">  - Flowrite (2020, seed): AI writing tool for emails and messages</text>
+<text x="18" y="409" class="l answer" style="animation-delay:5.32s">  - Front AI (2019, seed): AI customer-service bots; also in Denmark and Sweden</text>
+<text x="18" y="429" class="l answer" style="animation-delay:5.44s">  - Linear (2019, stage not listed): software for real estate agents</text>
+<text x="18" y="449" class="l answer" style="animation-delay:5.56s">  - Marvel Consulting (2019, bootstrapping): software consultancy</text>
+<text x="18" y="469" class="l answer" style="animation-delay:5.68s">  - Meltlake (2020, bootstrapping): Microsoft specialist consultancy</text>
+<text x="18" y="489" class="l answer" style="animation-delay:5.80s">  - Metroc (2019, seed): AI market-data platform for construction and real estate</text>
+<text x="18" y="509" class="l answer" style="animation-delay:5.92s">  - Mobal.io (2020, seed): digital tools for small businesses; also in Sweden</text>
+<text x="18" y="529" class="l answer" style="animation-delay:6.04s">  - Noice (2020, pre-seed): games and social platform, in stealth</text>
+<text x="18" y="549" class="l answer" style="animation-delay:6.16s">  - PK Cloud (2021, bootstrapping): IT services and staffing</text>
+<text x="18" y="569" class="l answer" style="animation-delay:6.28s">  - Skyfora (2019, seed): lightweight weather sondes and AI weather forecasts</text>
+<text x="18" y="589" class="l answer" style="animation-delay:6.40s">  - Workfellow (2020, Series A): automating repetitive knowledge work</text>
+<text x="18" y="609" class="l answer" style="animation-delay:6.52s">  </text>
+<text x="18" y="629" class="l answer" style="animation-delay:6.64s">  AI is the common thread, and Clausal stands out: founded in 2025, it has already</text>
+<text x="18" y="649" class="l answer" style="animation-delay:6.76s">  raised a Series A and reached 11–50 employees.</text>
+</svg>

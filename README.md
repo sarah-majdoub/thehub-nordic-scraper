@@ -68,6 +68,59 @@ Before committing to a full run, try a small one:
 
 ---
 
+## Use it from an AI assistant (MCP)
+
+The scraped data can also be queried by an AI assistant. `thehub-mcp` is an
+[MCP](https://modelcontextprotocol.io) server (Python SDK v2) that serves
+`data/companies_raw.jsonl` through three read-only tools, so Claude Code, Claude
+Desktop or any other MCP client can answer questions about the dataset without
+reading the file itself.
+
+![Claude Code answering "Which Finnish companies founded after 2018 have 11–50 employees?" with one search_companies call](docs/demo/demo.svg)
+
+That is a real session: Claude chose the tool and its filters itself, and one call
+answered the question. `total` tells it how many companies matched, so it knows when
+`limit` cut the list short.
+
+| Tool | Does | Example question |
+|---|---|---|
+| `search_companies(query, country, employees, founded_after, limit)` | Keyword search on name and description, with optional filters | "Swedish companies doing computer vision" |
+| `get_company(key)` | One company's profile, by key or thehub.io URL | "Tell me about 10Monkeys" |
+| `count_companies(by, country)` | Counts grouped by country, employees, founded or funding stage | "Norwegian companies by size" |
+
+Run a scrape first so `data/companies_raw.jsonl` exists, then register the server
+with Claude Code:
+
+```bash
+claude mcp add thehub --env THEHUB_DATA="$PWD/data/companies_raw.jsonl" \
+  -- "$PWD/.venv/bin/thehub-mcp"
+```
+
+For other clients, the command is `.venv/bin/thehub-mcp` over stdio, with
+`THEHUB_DATA` pointing at the JSONL.
+
+**Personal data stays out.** The tools return company-level facts only: never team
+members, LinkedIn URLs or emails. That is not enough on its own, because
+companies also write people into their public fields. Across the 2,719 records, 26
+descriptions contain an email address, founders name themselves in their company's
+description, and one company's "website" is a founder's LinkedIn profile. The server
+redacts all three, and searching for a person's name finds nothing. A test runs
+every tool against a fixture seeded with fake team data and these same leaks, and
+fails if any of it comes back. One-person firms named after their owner keep their
+name, because that is the company's registered name.
+
+```bash
+./.venv/bin/pip install -e ".[dev]"
+./.venv/bin/pytest
+```
+
+The fixture in `tests/fixtures/` holds 20 real company records with fake team
+members, LinkedIn URLs and emails, so the tests run without a scrape. To re-record
+the demo, run the question through `claude -p ... --output-format stream-json
+--verbose` and pass the output to `docs/demo/render.py`.
+
+---
+
 ## What the data actually contains
 
 Two of the four headline fields come directly from The Hub. The other two do not,
@@ -236,6 +289,9 @@ src/thehub_scraper/
   emails.py     stage 3 — email discovery on company websites
   export.py     flattening and CSV/XLSX/JSONL output
   cli.py        argparse and progress display
+  mcp_server.py MCP server: search, lookup and counts for AI assistants
+tests/          MCP server tests, run against tests/fixtures/companies.jsonl
+docs/demo/      the recorded MCP session and the script that renders it
 ```
 
 The generated data files are not committed — `.gitignore` excludes the CSV, XLSX and
