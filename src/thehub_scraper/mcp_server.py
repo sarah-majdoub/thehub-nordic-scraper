@@ -24,7 +24,9 @@ from pydantic import BaseModel, Field
 
 from .models import Company
 
-DEFAULT_DATA = Path(__file__).resolve().parents[2] / "data" / "companies_raw.jsonl"
+DATA_FILE = Path("data") / "companies_raw.jsonl"  # where `thehub` writes by default
+# Only meaningful for an editable install, where this file still sits in the repo.
+REPO_DATA = Path(__file__).resolve().parents[2] / DATA_FILE
 Country = Literal["DK", "FI", "IS", "NO", "SE"]
 Employees = Literal["1-10", "11-50", "51-100", "101-200", "200+"]
 EMPLOYEE_ORDER = list(Employees.__args__)
@@ -45,12 +47,28 @@ mcp = MCPServer(
 )
 
 
+def data_path() -> Path:
+    """THEHUB_DATA if set, else ./data from the working directory, else the repo's data/."""
+    if env := os.environ.get("THEHUB_DATA"):
+        path = Path(env).expanduser()
+        if path.is_file():
+            return path
+        raise ToolError(f"THEHUB_DATA points at {path}, which does not exist.")
+    tried = [Path.cwd() / DATA_FILE]
+    if (REPO_DATA.parents[1] / "pyproject.toml").is_file():  # an editable install
+        tried.append(REPO_DATA)
+    for path in tried:
+        if path.is_file():
+            return path
+    raise ToolError(
+        f"No data found (looked in {', '.join(map(str, tried))}). "
+        "Run `thehub` to scrape it, then set THEHUB_DATA to the companies_raw.jsonl it writes."
+    )
+
+
 @cache
 def companies() -> list[Company]:
-    path = Path(os.environ.get("THEHUB_DATA", DEFAULT_DATA))
-    if not path.is_file():
-        raise ToolError(f"No data at {path}. Run `thehub` to scrape it, or set THEHUB_DATA.")
-    with path.open(encoding="utf-8") as f:
+    with data_path().open(encoding="utf-8") as f:
         return [Company.model_validate_json(line) for line in f if line.strip()]
 
 

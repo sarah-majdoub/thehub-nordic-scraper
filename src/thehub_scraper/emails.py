@@ -20,7 +20,7 @@ from urllib.parse import urljoin, urlsplit
 
 import httpx
 from rich.progress import Progress
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser
 
 from .config import CONTACT_PATHS, ROLE_LOCALPARTS, Settings
 from .models import Company
@@ -52,7 +52,7 @@ def _registrable(host: str) -> str:
 
 def extract_emails(html: str, site_host: str) -> list[str]:
     """Pull addresses from mailto: links first, then from visible text."""
-    tree = HTMLParser(html)
+    tree = LexborHTMLParser(html)
     found: list[str] = []
 
     for node in tree.css("a[href^='mailto:']"):

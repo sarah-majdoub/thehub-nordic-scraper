@@ -110,11 +110,32 @@ async def test_query_can_start_with_punctuation():
 
 
 @pytest.mark.anyio
-async def test_missing_data_file_says_what_to_do(monkeypatch):
+async def test_bad_thehub_data_says_so(monkeypatch):
     monkeypatch.setenv("THEHUB_DATA", "/no/such/companies.jsonl")
     result = await call("count_companies", {"by": "country"})
     assert result.is_error
-    assert "No data at /no/such/companies.jsonl" in result.content[0].text
+    assert "THEHUB_DATA points at /no/such/companies.jsonl" in result.content[0].text
+
+
+def test_data_found_in_working_directory(monkeypatch, tmp_path):
+    # A non-editable install (pip, uvx) has no repo to fall back on, so the
+    # server must find the ./data/ that `thehub` writes where it was run.
+    (tmp_path / "data").mkdir()
+    (tmp_path / "data" / "companies_raw.jsonl").write_text(FIXTURE.read_text(encoding="utf-8"), encoding="utf-8")
+    monkeypatch.delenv("THEHUB_DATA")
+    monkeypatch.chdir(tmp_path)
+    assert len(companies()) == len(RAW)
+
+
+@pytest.mark.anyio
+async def test_no_data_anywhere_lists_where_it_looked(monkeypatch, tmp_path):
+    monkeypatch.delenv("THEHUB_DATA")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr("thehub_scraper.mcp_server.REPO_DATA", tmp_path / "repo" / "companies_raw.jsonl")
+    result = await call("count_companies", {"by": "country"})
+    assert result.is_error
+    assert "No data found" in result.content[0].text
+    assert str(tmp_path / "data" / "companies_raw.jsonl") in result.content[0].text
 
 
 @pytest.mark.anyio

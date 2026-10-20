@@ -88,16 +88,55 @@ answered the question. `total` tells it how many companies matched, so it knows 
 | `get_company(key)` | One company's profile, by key or thehub.io URL | "Tell me about 10Monkeys" |
 | `count_companies(by, country)` | Counts grouped by country, employees, founded or funding stage | "Norwegian companies by size" |
 
-Run a scrape first so `data/companies_raw.jsonl` exists, then register the server
-with Claude Code:
+### Set it up without cloning (uvx)
+
+With [uv](https://docs.astral.sh/uv/) installed, two commands are enough. `uvx`
+installs the package into a cached, throwaway environment and runs it, so there is no
+clone and no venv to manage. The first run takes a few seconds; later ones start from
+the cache.
+
+```bash
+# 1. Scrape. Writes data/companies_raw.jsonl in the current folder (about a minute).
+uvx --from git+https://github.com/sarah-majdoub/thehub-nordic-scraper thehub
+
+# 2. Register the server with Claude Code.
+claude mcp add thehub --env THEHUB_DATA="$PWD/data/companies_raw.jsonl" \
+  -- uvx --from git+https://github.com/sarah-majdoub/thehub-nordic-scraper thehub-mcp
+```
+
+For Claude Desktop or another client, add the same command to its MCP config, with
+an absolute path in `THEHUB_DATA`:
+
+```json
+{
+  "mcpServers": {
+    "thehub": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/sarah-majdoub/thehub-nordic-scraper", "thehub-mcp"],
+      "env": { "THEHUB_DATA": "/absolute/path/to/data/companies_raw.jsonl" }
+    }
+  }
+}
+```
+
+### Set it up from a clone
+
+After the [installation](#installation) steps and a scrape:
 
 ```bash
 claude mcp add thehub --env THEHUB_DATA="$PWD/data/companies_raw.jsonl" \
   -- "$PWD/.venv/bin/thehub-mcp"
 ```
 
-For other clients, the command is `.venv/bin/thehub-mcp` over stdio, with
-`THEHUB_DATA` pointing at the JSONL.
+### Where the server looks for the data
+
+1. `THEHUB_DATA`, if set. Use this with MCP clients: they start servers from a
+   folder you do not control, so a relative path is unreliable.
+2. `data/companies_raw.jsonl` under the folder the server was started from, which is
+   where `thehub` writes by default.
+3. The repo's own `data/` folder, for an editable install from a clone.
+
+If none exists, the tools return an error that names each place checked.
 
 **Personal data stays out.** The tools return company-level facts only: never team
 members, LinkedIn URLs or emails. That is not enough on its own, because
