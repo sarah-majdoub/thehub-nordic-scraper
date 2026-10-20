@@ -11,10 +11,15 @@ dependencies = [
     "selectolax>=0.3.21",
     "polars>=1.0",
     "xlsxwriter>=3.2",
+    "mcp>=2.3",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest", "anyio", "mcp[cli]>=2.3"]  # mcp[cli] adds `mcp dev`, the Inspector
 
 [project.scripts]
 thehub = "thehub_scraper.cli:main"
+thehub-mcp = "thehub_scraper.mcp_server:main"
 
 [build-system]
 requires = ["hatchling"]

@@ -1,0 +1,246 @@
+{
+  "question": "Which Finnish companies founded after 2018 have 11–50 employees?",
+  "steps": [
+    {
+      "tool": "search_companies",
+      "input": {
+        "country": "FI",
+        "employees": "11-50",
+        "founded_after": 2018,
+        "limit": 50
+      },
+      "result": {
+        "total": 17,
+        "companies": [
+          {
+            "key": "aicontentfy",
+            "name": "AIContentfy",
+            "website": "https://aicontentfy.com",
+            "profile_url": "https://thehub.io/startups/aicontentfy",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2023",
+            "funding_stage": "bootstrapping",
+            "what_we_do": "AIContentfy specializes in state-of-the-art AI content generation help businesses create high-quality content quickly and efficiently. Our tech is designed to provide users with an intuitive experience, allowing them to generate SEO articles for increased organic growth, especially for other…"
+          },
+          {
+            "key": "bind",
+            "name": "Bind",
+            "website": "https://www.bindlegal.com",
+            "profile_url": "https://thehub.io/startups/bind",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2025",
+            "funding_stage": "seed",
+            "what_we_do": "Bind is the AI-native contract automation platform used by organizations like Slush to get deals from handshake to signed agreement without the delays that kill momentum. Our AI Contract Agent drafts contracts from emails, sales notes, or call transcripts — then handles the negotiation…"
+          },
+          {
+            "key": "cerecaptio-oy-ltd",
+            "name": "Cerecaptio ",
+            "website": "https://www.cerecaptio.com/",
+            "profile_url": "https://thehub.io/startups/cerecaptio-oy-ltd",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "bootstrapping",
+            "what_we_do": "Our mission of making companies scale to their full potential started at the beginning of 2021. Being a talent acquisition business partner for high growth companies, we aim to help them scale by offering our complete recruitment solutions around talent acquisition related matters. With the quick,…"
+          },
+          {
+            "key": "clausal",
+            "name": "Clausal",
+            "website": "https://clausal.com",
+            "profile_url": "https://thehub.io/startups/clausal",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2025",
+            "funding_stage": "seriesa",
+            "what_we_do": "Clausal. Helsinki, Finland. Onboard autonomy for GNSS-denied operations. Satellite navigation can no longer be assumed. Jamming and spoofing are routine, and uncrewed systems increasingly have to navigate, hold position and understand what they are looking at without a GNSS fix and without a…"
+          },
+          {
+            "key": "emabler",
+            "name": "eMabler",
+            "website": "https://www.emabler.com/",
+            "profile_url": "https://thehub.io/startups/emabler",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": "seriesa",
+            "what_we_do": "We create a more sustainable future by making eMobility more accessible with our Open EV Charging Platform. Our cloud-native and cost-efficient platform with APIs enables you to control, manage and scale your EV charging business and provide a better user experience. The eMabler team has extensive…"
+          },
+          {
+            "key": "financekey",
+            "name": "FinanceKey",
+            "website": "https://www.financekey.com/",
+            "profile_url": "https://thehub.io/startups/financekey",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2021",
+            "funding_stage": "seed",
+            "what_we_do": "FinanceKey is building the infrastructure for programmable treasury. Our real-time treasury platform helps CFOs, treasurers and enterprise finance teams automate liquidity, payments, forecasting and cash management workflows across banks, ERPs, and financial systems. By replacing fragmented…"
+          },
+          {
+            "key": "flowrite",
+            "name": "Flowrite",
+            "website": "https://www.flowrite.com/",
+            "profile_url": "https://thehub.io/startups/flowrite",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "seed",
+            "what_we_do": "We are creating the world's fastest writing experience; a productivity tool that helps you supercharge your daily communication by turning words into ready-to-send emails and messages. It's designed for those whose work depends on communicating effectively and is powered by some of the latest…"
+          },
+          {
+            "key": "front-ai",
+            "name": "Front AI",
+            "website": "http://www.front.ai",
+            "profile_url": "https://thehub.io/startups/front-ai",
+            "countries": [
+              "DK",
+              "SE",
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": "seed",
+            "what_we_do": "Front AI has created the next generation of AI-based customer service bots. Our mission is to revolutionize the market by offering services that greatly enhance customer service performance and enable companies to serve their clients 24/7/365. With our solutions our clients can automate up to 50%…"
+          },
+          {
+            "key": "linear",
+            "name": "Linear",
+            "website": "https://www.linear.fi/en",
+            "profile_url": "https://thehub.io/startups/linear",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": null,
+            "what_we_do": "The story behind Linear began in 2018 when our other service Dixu was founded in Helsinki, Finland. While working on that project, we met multiple realtors and other operators working in the real estate industry and heard the difficulties they had with the manual labor. Also, the lack of modern-day…"
+          },
+          {
+            "key": "marvel-consulting-2",
+            "name": "Marvel Consulting",
+            "website": "https://www.marvelconsulting.fi/",
+            "profile_url": "https://thehub.io/startups/marvel-consulting-2",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": "bootstrapping",
+            "what_we_do": "We find our purpose in helping people and our communities with software. We want to help bring software to everything imaginable, as we believe software can help in everything imaginable. Why we believe in this so strongly, is that there already is software in almost everything today: your vehicle…"
+          },
+          {
+            "key": "meltlake",
+            "name": "Meltlake",
+            "website": "http://www.meltlake.com",
+            "profile_url": "https://thehub.io/startups/meltlake",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "bootstrapping",
+            "what_we_do": "Meltlake is a Microsoft specialist consultancy. Our offering covers Modern Work, Business applications, and Azure. We take a holistic approach to each unique situation. We speak both business and tech, and we understand people. We'll help our clients to see and capture the benefits that smart use…"
+          },
+          {
+            "key": "metroc",
+            "name": "Metroc",
+            "website": "https://metroc.ai",
+            "profile_url": "https://thehub.io/startups/metroc",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": "seed",
+            "what_we_do": "At Metroc, we help Construction and Real estate companies to find new customers and gain a better market understanding. To achieve this goal we develop our own AI-based market data platform with a database of all properties, construction projects, and real estate deals. We're currently a team of 27…"
+          },
+          {
+            "key": "mobal",
+            "name": "Mobal.io",
+            "website": "http://www.mobal.io",
+            "profile_url": "https://thehub.io/startups/mobal",
+            "countries": [
+              "SE",
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "seed",
+            "what_we_do": "At Mobal, we believe extraordinary businesses shouldn’t get lost in the digital noise. We’re on a mission to empower the cafés, clinics, shops and global brands of tomorrow by giving them tools that are smart, simple and built to grow. If you’re driven by impact and want to work where your ideas…"
+          },
+          {
+            "key": "noice",
+            "name": "Noice",
+            "website": "https://noice.com/",
+            "profile_url": "https://thehub.io/startups/noice",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "preseed",
+            "what_we_do": "Noice is an early stage stealth startup working on an innovative combo of “games X social X platform”. We’ve validated our core offering in multiple user tests and seen how using it puts a huge smile on people's faces. We’re backed by several million euros in funding and are now building our…"
+          },
+          {
+            "key": "pk-talents",
+            "name": "PK Cloud",
+            "website": "https://www.pkcloud.vip",
+            "profile_url": "https://thehub.io/startups/pk-talents",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2021",
+            "funding_stage": "bootstrapping",
+            "what_we_do": "PK Talents is now part of PeisKas Oy family and PK Cloud business line. Here at PK Cloud we provide large range of IT related services and recourcing. Our head office is in Finland, but we are rapidly expanding globally hand in hand with our customers. If you would like to be part of good vibes…"
+          },
+          {
+            "key": "hurricane-unwinder",
+            "name": "Skyfora",
+            "website": "https://www.skyfora.com/",
+            "profile_url": "https://thehub.io/startups/hurricane-unwinder",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2019",
+            "funding_stage": "seed",
+            "what_we_do": "Skyfora is Finnish company developing next-generation weather technology. The StreamSonde is world’s lightest weather sonde and the AI-powered weather forecasts bring solutions to many industries in a world faced with climate change and extreme weather. Skyfora’s high-tech solutions increase the…"
+          },
+          {
+            "key": "workfellowai",
+            "name": "Workfellow",
+            "website": "https://www.workfellow.ai/",
+            "profile_url": "https://thehub.io/startups/workfellowai",
+            "countries": [
+              "FI"
+            ],
+            "employees": "11-50",
+            "founded": "2020",
+            "funding_stage": "seriesa",
+            "what_we_do": "Today’s knowledge work is broken. Copy-paste-copy-paste-copy-paste all the time... Searching those damn files and relevant information. So much talent wasted! It’s the 2020’s. Modern work could and should be free of manual and repetitive work; for everybody from car designers to finance…"
+          }
+        ]
+      }
+    },
+    {
+      "answer": "thehub.io lists 17 Finnish companies founded after 2018 with 11–50 employees. The list only covers IT and software companies that aren't currently raising funding.\n\n- **AIContentfy** (2023, bootstrapping): AI-generated SEO content\n- **Bind** (2025, seed): AI contract drafting and negotiation\n- **Cerecaptio** (2020, bootstrapping): recruitment partner for high-growth companies\n- **Clausal** (2025, Series A): navigation for uncrewed systems when satellite positioning (GNSS) is jammed or unavailable\n- **eMabler** (2019, Series A): open platform for running EV charging businesses\n- **FinanceKey** (2021, seed): real-time treasury and cash-management platform\n- **Flowrite** (2020, seed): AI writing tool for emails and messages\n- **Front AI** (2019, seed): AI customer-service bots; also in Denmark and Sweden\n- **Linear** (2019, stage not listed): software for real estate agents\n- **Marvel Consulting** (2019, bootstrapping): software consultancy\n- **Meltlake** (2020, bootstrapping): Microsoft specialist consultancy\n- **Metroc** (2019, seed): AI market-data platform for construction and real estate\n- **Mobal.io** (2020, seed): digital tools for small businesses; also in Sweden\n- **Noice** (2020, pre-seed): games and social platform, in stealth\n- **PK Cloud** (2021, bootstrapping): IT services and staffing\n- **Skyfora** (2019, seed): lightweight weather sondes and AI weather forecasts\n- **Workfellow** (2020, Series A): automating repetitive knowledge work\n\nAI is the common thread, and Clausal stands out: founded in 2025, it has already raised a Series A and reached 11–50 employees."
+    }
+  ]
+}
