@@ -103,6 +103,21 @@ async def test_query_matches_word_starts_and_ranks_name_first():
 
 
 @pytest.mark.anyio
+async def test_query_can_start_with_punctuation():
+    # A fixture description says "(HQ". \b would need a letter after the boundary
+    # and miss it, the same way it missed ".net" in the real data.
+    assert (await call("search_companies", {"query": "(hq"})).structured_content["total"] == 1
+
+
+@pytest.mark.anyio
+async def test_missing_data_file_says_what_to_do(monkeypatch):
+    monkeypatch.setenv("THEHUB_DATA", "/no/such/companies.jsonl")
+    result = await call("count_companies", {"by": "country"})
+    assert result.is_error
+    assert "No data at /no/such/companies.jsonl" in result.content[0].text
+
+
+@pytest.mark.anyio
 async def test_get_company_accepts_key_or_profile_url():
     by_key = await call("get_company", {"key": "10monkeys"})
     by_url = await call("get_company", {"key": "https://thehub.io/startups/10monkeys"})

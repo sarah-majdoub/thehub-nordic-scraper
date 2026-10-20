@@ -48,6 +48,8 @@ mcp = MCPServer(
 @cache
 def companies() -> list[Company]:
     path = Path(os.environ.get("THEHUB_DATA", DEFAULT_DATA))
+    if not path.is_file():
+        raise ToolError(f"No data at {path}. Run `thehub` to scrape it, or set THEHUB_DATA.")
     with path.open(encoding="utf-8") as f:
         return [Company.model_validate_json(line) for line in f if line.strip()]
 
@@ -130,7 +132,8 @@ def search_companies(
     Name matches rank above description-only matches. `total` says how many
     matched in all, so you can tell when results were cut off by `limit`.
     """
-    words = [re.compile(rf"\b{re.escape(w)}") for w in query.lower().split()]
+    # Match at word starts. Not \b, which needs a letter next, so ".net" would fail.
+    words = [re.compile(rf"(?<!\w){re.escape(w)}") for w in query.lower().split()]
     hits: list[tuple[int, Company]] = []
     for c in companies():
         if country and country not in c.country_codes:
